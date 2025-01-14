@@ -4,13 +4,13 @@ const server = require("../index.js");
 describe("Operaciones CRUD de cafes", () => {
 
     // 1. Testea que la ruta GET /cafes devuelve un status code 200 y el tipo de dato recibido es un arreglo con por lo menos 1 objeto.
-    it("GET - Consulta ID Café existente - Cod 200", async () => {
-        const { body, status } = await request(server).get('/cafes/2').send();
+    it("GET - Consulta Cafés existentes - Cod 200", async () => {
+        const { body, status } = await request(server).get('/cafes').send();
         expect(status).toBe(200);
         expect(body).toBeInstanceOf(Array);
         expect(body.length).toBeGreaterThan(0);
     });
-    
+
     // 2. Comprueba que se obtiene un código 404 al intentar eliminar un café con un id que no existe
     it("DELETE - Elimina ID Café no existente - Cod 404", async () => {
         const jwt = "token";
